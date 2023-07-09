@@ -1,12 +1,12 @@
 package main
 
+import "os"
+
 func main() {
-	// byteArrayは[]byte{0x41, 0x53, 0x43, 0x49, 0x49}
-	byteArray := []byte("ASCII")
-	println("ASCII は ", byteArray)
-
-	// strは"ASCII"
-	str := string([]byte{0x41, 0x53, 0x43, 0x49, 0x49})
-	println("[]byte{0x41, 0x53, 0x43, 0x49, 0x49} は ", str)
-
+	file, err := os.Create("test.txt")
+	if err != nil {
+		panic(err)
+	}
+	file.Write([]byte("os.File example\n"))
+	file.Close()
 }
