@@ -1,8 +1,12 @@
 package main
 
-import "os"
+import (
+	"bytes"
+	"fmt"
+)
 
 func main() {
-	os.Stdout.Write([]byte("os.Stdout example\n"))
-	os.Stdout.Write([]byte{0x41})
+	var buffer bytes.Buffer
+	buffer.Write([]byte("bytes.Buffer example\n"))
+	fmt.Println(buffer.String())
 }
